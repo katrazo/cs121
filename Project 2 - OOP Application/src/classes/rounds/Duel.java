@@ -2,6 +2,8 @@ package classes.rounds;
 
 import classes.characters.PlayerCharacter;
 
+import java.util.Arrays;
+
 /**
  * An implementation of Round that is specifically meant for and optimized for two players.
  * Whereas the FreeForAll mode uses complex list manipulation, the duel is optimized with simple math for two players.
@@ -18,6 +20,9 @@ public class Duel implements Round{
     }
 
     public void queueCharacters() {
+        // If there was an order before, it must be cleared.
+        Arrays.fill(order, null);
+
         // If the characters have the same speed
         if (character1.getSpeed() == character2.getSpeed()) {
             // Generate a random number, 1 or 2
