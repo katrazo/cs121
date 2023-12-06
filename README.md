@@ -9,12 +9,12 @@ The table below details every project in this repository.
 
 | Folder/Project | Description |
 | --- | --- |
-| cs121Practice                           | Various in-class activities |
-| Activity 1  - Strings and Input         | A mad lib with two versions: one that uses a Scanner in the console, and one that uses JOptionPane. |
-| Activity 2  - DialogBox and Scanner     | Manipulation of numbers and strings with a console Scanner and more JOptionPane respectively. |
-| Activity 3  - Logical Operators         | Demonstrates usage of logical operators with numbers and strings. |
-| Activity 4  - Switch Statements         | Demonstrates usage of enhanced switch statements. |
-| Activity 5  - Conditional and dotEquals | Extensive usage of if-else statements with advanced usage of JOptionPane. |
+| [cs121Practice]([url](https://github.com/katrazo/cs121/tree/main/cs121Practice))                           | Various in-class activities |
+| [Activity 1  - Strings and Input]([url](https://github.com/katrazo/cs121/tree/main/Activity%201%20-%20Strings%20and%20Input))         | A mad lib with two versions: one that uses a Scanner in the console, and one that uses JOptionPane. |
+| [Activity 2  - DialogBox and Scanner]([url](https://github.com/katrazo/cs121/tree/main/Activity%202%20-%20DialogBox%20and%20Scanner))     | Manipulation of numbers and strings with a console Scanner and more JOptionPane respectively. |
+| [Activity 3  - Logical Operators]([url](https://github.com/katrazo/cs121/tree/main/Activity%203%20-%20Logical%20Operators))         | Demonstrates usage of logical operators with numbers and strings. |
+| [Activity 4  - Switch Statements]([url](https://github.com/katrazo/cs121/tree/main/Activity%204%20-%20Switch%20Statements))         | Demonstrates usage of enhanced switch statements. |
+| [Activity 5  - Conditional and dotEquals]([url](https://github.com/katrazo/cs121/tree/main/Activity%205%20-%20Conditional%20and%20dotEquals)) | Extensive usage of if-else statements with advanced usage of JOptionPane. |
 | Activity 6  - For Loops                 | ... |
 | Activity 7  - While Loops               | ... |
 | Activity 8  - Nested For Loops          | ... |
