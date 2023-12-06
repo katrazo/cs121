@@ -1,0 +1,7 @@
+ course  credits  score
+CS121 4 98
+CS215 3 99
+HSC371 3 100
+HIST150 3 97
+CHSu299x 1 100
+SP202 3 100
