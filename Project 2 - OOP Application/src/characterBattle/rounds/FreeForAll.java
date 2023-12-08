@@ -1,8 +1,8 @@
-package classes.rounds;
+package characterBattle.rounds;
 
 import java.util.ArrayList;
 import java.util.Queue;
-import classes.characters.PlayerCharacter;
+import characterBattle.characters.PlayerCharacter;
 
 /**
  * A subclass of Round that supports a theoretically countable infinity of PlayerCharacters.

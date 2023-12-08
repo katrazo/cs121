@@ -1,6 +1,6 @@
-package classes.characters.importedCharacters;
+package characterBattle.characters.importedCharacters;
 
-import classes.characters.PlayerCharacter;
+import characterBattle.characters.PlayerCharacter;
 
 public class JSONCharacter extends PlayerCharacter {
 

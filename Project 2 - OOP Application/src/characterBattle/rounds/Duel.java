@@ -1,6 +1,6 @@
-package classes.rounds;
+package characterBattle.rounds;
 
-import classes.characters.PlayerCharacter;
+import characterBattle.characters.PlayerCharacter;
 
 import java.util.Arrays;
 

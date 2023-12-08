@@ -1,11 +1,11 @@
-import classes.characters.*;
+import characterBattle.characters.*;
+import characterBattle.characters.importedCharacters.JSONCharacterImporter;
+import katUtils.ScannerPlus;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
-    static Scanner userInput = new Scanner(System.in);
+    static ScannerPlus scannerPlus = new ScannerPlus();
     static ArrayList<PlayerCharacter> availableCharacters = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class Main {
     }
 
     public static void importCharacter() {
-        String askImport = userInput.nextLine().toLowerCase();
+        String askImport = scannerPlus.promptUser();
 
         if (askImport.equals("yes")) {
             PlayerCharacter importedCharacter = JSONCharacterImporter.importCharacter();

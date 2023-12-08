@@ -1,6 +1,6 @@
-package classes.rounds;
+package characterBattle.rounds;
 
-import classes.characters.PlayerCharacter;
+import characterBattle.characters.PlayerCharacter;
 
 /**
  * A general framework for a round. Implementations are basically game modes.

@@ -1,4 +1,4 @@
-package classes.characters;
+package characterBattle.characters;
 
 /**
  * A blueprint class on which specific classes.characters are built.
@@ -151,9 +151,9 @@ public abstract class PlayerCharacter {
      * @param command the action to attempt, if the command matches an action
      * @param target the PlayerCharacter to target the action with
      * @return true if an action was enacted, false if the command didn't match any action
-     * @see classes.rounds.Round
-     * @see classes.rounds.FreeForAll
-     * @see classes.rounds.Duel
+     * @see characterBattle.rounds.Round
+     * @see characterBattle.rounds.FreeForAll
+     * @see characterBattle.rounds.Duel
      */
     public boolean act(String command, PlayerCharacter target) {
         command = command.toLowerCase();

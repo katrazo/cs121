@@ -1,6 +1,6 @@
-package classes.characters;
+package characterBattle.characters.importedCharacters;
 
-import classes.characters.importedCharacters.JSONCharacter;
+import characterBattle.characters.importedCharacters.JSONCharacter;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
