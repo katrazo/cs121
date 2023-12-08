@@ -1,0 +1,10 @@
+{
+  "name": "Example",
+  "hp": "100",
+  "power": "10",
+  "baseDefense": "10",
+  "speed": "50",
+  "critChance": "5",
+  "abilityName": "Example Ability",
+  "abilityPower": "100"
+}

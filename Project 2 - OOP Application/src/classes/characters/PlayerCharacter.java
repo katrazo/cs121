@@ -5,6 +5,7 @@ package classes.characters;
  * The idea is that specific classes.characters will use the PlayerCharacter constructor with very specific arguments.
  */
 public abstract class PlayerCharacter {
+    String name; // The name of a character. Serves as a sort of unique identifier.
     private int hp; // The Health Points assigned to a character.
     // The opposing character's power is negatively applied to this value when they choose a regular attack.
     private int power; // The power of a character's regular attack.
@@ -25,9 +26,27 @@ public abstract class PlayerCharacter {
     private String abilityPower; // The power of an ability. This can be applied in more ways than one.
     // See each character subclass for more.
 
+    public PlayerCharacter(String name, int hp, int power, int baseDefense, int speed, double critChance, String abilityName, String abilityPower) {
+        this.name = name;
+        this.hp = hp;
+        this.power = power;
+        this.baseDefense = baseDefense;
+        this.speed = speed;
+        this.critChance = critChance;
+        this.abilityName = abilityName;
+        this.abilityPower = abilityPower;
+    }
+
 
     // -=-=- Getters and Setters -=-=-
 
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public int getHp() {
         return hp;
     }
@@ -106,7 +125,7 @@ public abstract class PlayerCharacter {
     /**
      * Toggles whether the character is actively defending.
      * If the character actively defends, their actual defense is 1.5 times their base defense.
-     * If the character stops defending, their actual defense regresses to their base defense.
+     * If the character stops defending, their actual defense reverts to their base defense.
      * @return whether the character is *now* actively defending
      */
     public boolean toggleDefending() {
@@ -138,8 +157,11 @@ public abstract class PlayerCharacter {
      */
     public boolean act(String command, PlayerCharacter target) {
         command = command.toLowerCase();
-        if (command.equals("attack"))
-            attack(target);
+        if (command.equals("attack")) {
+            int damageDone = attack(target);
+            System.out.println(this.name + " attacked " + target + " for " + damageDone + " damage!");
+            System.out.println(target + "'s HP is now " + target.getHp() + "!");
+        }
         else
             return false;
         return true;

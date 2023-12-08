@@ -5,17 +5,15 @@ import java.util.Queue;
 import classes.characters.PlayerCharacter;
 
 /**
- * An implementation of Round that supports a theoretically countable infinity of PlayerCharacters.
+ * A subclass of Round that supports a theoretically countable infinity of PlayerCharacters.
  * The math is not exactly optimized, and more characters will lead to slower gameplay.
  * @see Round
  */
-public class FreeForAll implements Round{
+public class FreeForAll extends Round{
     private ArrayList<PlayerCharacter> roster; // The characters fighting in a round.
     // Order in the list does not determine the acting order of characters.
     private Queue<PlayerCharacter> queue; // The characters fighting in a round ordered by speed.
     // Order in this list DOES DETERMINE the acting order of characters.
-    private PlayerCharacter winner; // The character that wins the round.
-    private int turns = 0; // The number of turns accumulated throughout a round.
 
     public FreeForAll(ArrayList<PlayerCharacter> roster) {
         if (roster.size() > 1)
@@ -107,5 +105,25 @@ public class FreeForAll implements Round{
                 }
             }
         }
+    }
+
+    @Override
+    public void turn() {
+
+    }
+
+    @Override
+    public String command(String prompt) {
+        return null;
+    }
+
+    @Override
+    public void endGame() {
+
+    }
+
+    @Override
+    public String returnResults() {
+        return null;
     }
 }
