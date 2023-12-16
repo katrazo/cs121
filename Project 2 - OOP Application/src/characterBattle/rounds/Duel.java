@@ -19,6 +19,25 @@ public class Duel extends Round{
         this.character2 = character2;
     }
 
+    public PlayerCharacter getCharacter1() {
+        return character1;
+    }
+    public void setCharacter1(PlayerCharacter character1) {
+        this.character1 = character1;
+    }
+    public PlayerCharacter getCharacter2() {
+        return character2;
+    }
+    public void setCharacter2(PlayerCharacter character2) {
+        this.character2 = character2;
+    }
+    public PlayerCharacter[] getOrder() {
+        return order;
+    }
+    public void setOrder(PlayerCharacter[] order) {
+        this.order = order;
+    }
+
     public void queueCharacters() {
         // If there was an order before, it must be cleared.
         Arrays.fill(order, null);
@@ -39,7 +58,7 @@ public class Duel extends Round{
             }
         }
         // If character1 is faster, character 1 goes first
-        else if (character1.getSpeed() > character1.getSpeed()) {
+        else if (character1.getSpeed() > character2.getSpeed()) {
             order[0] = character1;
             order[1] = character2;
         }
@@ -51,18 +70,39 @@ public class Duel extends Round{
     }
 
     @Override
-    public void turn() {
-
+    public boolean turn(String command, PlayerCharacter actor, PlayerCharacter target) {
+        // Do the thing
+        return command(command, actor, target);
     }
 
     @Override
-    public String command(String prompt) {
-        return null;
+    public boolean command(String input, PlayerCharacter actor, PlayerCharacter target) {
+        switch (input) {
+            case "attack" -> {
+                actor.attack(target);
+                return true;
+            }
+            case "defend" -> {
+                actor.toggleDefending();
+                return true;
+            }
+            case "ability" -> {
+                actor.ability(target);
+                return true;
+            }
+            default -> {
+                System.out.println("Command not recognized. Please try again.");
+                return false;
+            }
+        }
     }
 
     @Override
-    public void endGame() {
-
+    public PlayerCharacter endGame() {
+        if (character1.getHp() <= 0)
+            return character2;
+        else
+            return character1;
     }
 
     @Override

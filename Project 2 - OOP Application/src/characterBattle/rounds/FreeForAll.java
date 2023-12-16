@@ -108,22 +108,22 @@ public class FreeForAll extends Round{
     }
 
     @Override
-    public void turn() {
-
-    }
-
-    @Override
-    public String command(String prompt) {
+    public PlayerCharacter endGame() {
         return null;
-    }
-
-    @Override
-    public void endGame() {
-
     }
 
     @Override
     public String returnResults() {
         return null;
+    }
+
+    @Override
+    public boolean command(String input, PlayerCharacter actor, PlayerCharacter target) {
+        return false;
+    }
+
+    @Override
+    public boolean turn(String command, PlayerCharacter actor, PlayerCharacter target) {
+        return false;
     }
 }

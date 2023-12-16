@@ -3,30 +3,31 @@ package characterBattle.characters;
 /**
  * A blueprint class on which specific classes.characters are built.
  * The idea is that specific classes.characters will use the PlayerCharacter constructor with very specific arguments.
+ * Attributes are protected so that subclass characters can access their own variables. Other packages must use publically available get and set methods.
  */
 public abstract class PlayerCharacter {
-    String name; // The name of a character. Serves as a sort of unique identifier.
-    private int hp; // The Health Points assigned to a character.
+    protected String name; // The name of a character. Serves as a sort of unique identifier.
+    protected int hp; // The Health Points assigned to a character.
     // The opposing character's power is negatively applied to this value when they choose a regular attack.
-    private int power; // The power of a character's regular attack.
+    protected int power; // The power of a character's regular attack.
     // The opposing character's HP has this value negatively applied to their health on a regular attack.
 
-    private int baseDefense; // The character's base defense value.
+    protected int baseDefense; // The character's base defense value.
     // This differs from actual defense for cases where the character is actively defending.
-    private int actualDefense; // The character's true defense value.
+    protected int actualDefense; // The character's true defense value.
     // This value is subtracted from the opposing character's attack power before said attack power is applied to this character's HP.
-    private boolean isDefending; // Stores whether the character is defending, an action which increases their defense by 50% for one turn.
+    protected boolean isDefending; // Stores whether the character is defending, an action which increases their defense by 50% for one turn.
 
-    private int speed; // The priority of attacking first.
+    protected int speed; // The priority of attacking first.
     // Between multiple classes.characters, they act in descending order of speed.
-    private double critChance; // A percentage chance to double the character's power on a regular attack.
+    protected double critChance; // A percentage chance to double the character's power on a regular attack.
     // For example, "0.55" is a 55% chance to double the character's power on an attack.
 
-    private String abilityName; // The name of a character's special ability.
-    private String abilityPower; // The power of an ability. This can be applied in more ways than one.
+    protected String abilityName; // The name of a character's special ability.
+    protected int abilityPower; // The power of an ability. This can be applied in more ways than one.
     // See each character subclass for more.
 
-    public PlayerCharacter(String name, int hp, int power, int baseDefense, int speed, double critChance, String abilityName, String abilityPower) {
+    public PlayerCharacter(String name, int hp, int power, int baseDefense, int speed, double critChance, String abilityName, int abilityPower) {
         this.name = name;
         this.hp = hp;
         this.power = power;
@@ -95,10 +96,10 @@ public abstract class PlayerCharacter {
     public void setAbilityName(String abilityName) {
         this.abilityName = abilityName;
     }
-    public String getAbilityPower() {
+    public int getAbilityPower() {
         return abilityPower;
     }
-    public void setAbilityPower(String abilityPower) {
+    public void setAbilityPower(int abilityPower) {
         this.abilityPower = abilityPower;
     }
 
@@ -113,6 +114,25 @@ public abstract class PlayerCharacter {
      */
     public int attack(PlayerCharacter opponent) {
         int damage = power;
+        if (critChance <= Math.random())
+            damage *= 2;
+        damage -= opponent.getActualDefense();
+        if (damage < 0)
+            damage = 0;
+        opponent.setHp(opponent.getHp() - damage);
+        System.out.println(name + " attacks " + opponent.getName() + " for " + damage + " damage!");
+        System.out.println(opponent.getName() + " now has " + opponent.getHp() + " hp left!");
+        return damage;
+    }
+
+    /**
+     * An overriding method for characters to attack with a special value (ability)
+     * @param opponent the character being targeted by the attack
+     * @param damage overriding value to attack the opponent with
+     * @return the damage applied to the opponent's hp
+     * @see characterBattle.characters.importedCharacters.JSONCharacter
+     */
+    public int attack(PlayerCharacter opponent, int damage) {
         if (critChance <= Math.random())
             damage *= 2;
         damage -= opponent.getActualDefense();
@@ -166,4 +186,5 @@ public abstract class PlayerCharacter {
             return false;
         return true;
     }
+
 }

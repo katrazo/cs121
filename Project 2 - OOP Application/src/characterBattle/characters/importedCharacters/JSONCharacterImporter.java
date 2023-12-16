@@ -47,7 +47,7 @@ public class JSONCharacterImporter {
             toReturn = new BufferedReader(new FileReader("src/classes/characters/importedCharacters/" + fileName));
         } catch (FileNotFoundException e) {
             // If the file is not found, try again
-            System.out.println("File not found. Please try again.");
+            System.out.println("File src/classes/characters/importedCharacters/" + fileName + " not found. Please try again.");
             toReturn = locateFile();
         }
         // Finally, return the BufferedReader for the found file.

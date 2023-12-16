@@ -13,21 +13,28 @@ public abstract class Round {
 
     /**
      * Calls the scanner and returns the line.
-     * @param prompt The prompt to give a user.
-     * @return The line that the user enters, to be used in commands like PlayerCharacter.act()
+     * @return true if user command was accepted as an action, false if not
      * @see PlayerCharacter
      */
-    public abstract String command(String prompt);
+    public abstract boolean command(String input, PlayerCharacter actor, PlayerCharacter target);
+
+    public int getTurns() {
+        return turns;
+    }
+    public void setTurns(int turns) {
+        this.turns = turns;
+    }
 
     /**
-     * Causes the characters to act in order of the queue.
+     * Causes a character to act, presumable in order of the queue.
+     * @return true if the character acted, false if not
      */
-    public abstract void turn();
+    public abstract boolean turn(String command, PlayerCharacter actor, PlayerCharacter target);
 
     /**
      * Declares a winner and stops the recursive action of turns.
      */
-    public abstract void endGame();
+    public abstract PlayerCharacter endGame();
 
     /**
      * Orders characters, be it in a queue or in an array.
