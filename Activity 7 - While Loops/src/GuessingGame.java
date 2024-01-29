@@ -18,7 +18,7 @@ public class GuessingGame {
 
         // Always true; will break manually if the user gets the number right or quits
         // This is because if I check for a number and the user typed "q" then it will crash
-        while(1 == 1) {
+        while(true) {
             input = userInput.next();
             numOfGuesses++;
 
