@@ -46,3 +46,5 @@ The table below details every project in this repository.
 | Lab 2 - Achermann Recursion             | ... |
 | Project 1 - Character Battle            | ... |
 | Project 2 - OOP Application             | ... |
+
+
